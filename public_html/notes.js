@@ -124,6 +124,42 @@ let numRand = Math.random() * 100;
 console.log(parseInt(numRand))
 
 //наконец дошел до рандома :)
+    24.04.23
+    Урок про callback функции
+    при вызове этой функции не нужно ставить
+    двойных скобок, просто название функции.
+    При попытке запустить код в консоли, получил ошибку.
+    Дело было в самой консоли, она не знала setTimeout.
+    В браузере всё получилось ОК.
+
+    "use strict";
+
+function first() {
+    //do something
+    setTimeout(function(){
+        console.log(1);
+    }, 500);
+}
+
+
+function second() {
+    console.log(2);
+}
+
+first();
+second(); 
+
+function learnJS(lang, callback) {
+    console.log(`I learn: ${lang}`);
+    callback();
+    
+}
+
+function done(){
+    console.log('i finish that job!');
+}
+
+learnJS('JavaScript', done);
 
  */
 

@@ -66,11 +66,13 @@ function detectPersonalLvl() {
 detectPersonalLvl();
 
 
-let privat = false;
-function showMyDB() {
-    if (privat == false) {
+//let privat = false;
+
+function showMyDB(hidden) {
+    if (!hidden) {
         console.log(personalMovieDB);
     }
 }
 
-showMyDB();
+showMyDB(personalMovieDB.privat);
+
