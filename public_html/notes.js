@@ -229,6 +229,45 @@ console.log(border);
   // например String
   // все сущности сводятся к объектам
   // скорее прототипно ориентированный язык
+    
+    Массивы и псевдомассивы
+        let of работает только с массивоподобными сущностями
+        
+        **вопрос собеседования
+            как соотносится arr.length 
+            с нумерацией массива - номер индекса + 1
+            
+            "use strict";
+
+const arr = [1,2,3,6,8];
+
+//console.log(arr.length);
+//arr[99] = 0;
+//console.log(arr.length);
+//console.log(arr);
+////arr.pop();
+//arr.push(10);
+//
+//
+//console.log(arr);
+//
+//for (let i = 0; i < arr.length; i++) {
+//    console.log(arr[i]);
+//}
+//
+//for (let value of arr) {
+//    console.log(value);
+//}
+
+// Самый полезный метод.
+ arr.forEach(function(item,i,arr){
+     console.log(`${i}: ${item} внутри массива ${arr}`);
+ })
+// Используем чаще всего именно этот метод
+// У метода через просто for есть плюс, в том плане что можем
+// использовать break и continue.
+// Остановился на 15 минуте. Посмотри картинку :P
+
 
 
   */
