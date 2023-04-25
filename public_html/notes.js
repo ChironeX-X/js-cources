@@ -161,6 +161,76 @@ function done(){
 
 learnJS('JavaScript', done);
 
- */
+    25.04.23
+    Объекты и деструктуризация объектов.
+    for (let key OF options) не работает с объектами.
+    Когда ставятся круглые скобки, значит что-то идет в работу.
+"use strict";
+
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    makeTest: function(){
+        console.log('test')
+    }
+    
+    
+}
+
+console.log(options['colors']['border']);
+
+
+delete options.name;
+
+console.log(options);
+let counter = 0;
+
+for (let key in options) {
+    if(typeof(options[key])==='object'){
+        for (let i in options[key]){
+            console.log(`Свойство ${i} имеет значение ${options[key][i]}`)
+            counter++;
+        }
+    } else {
+        console.log(`Свойство ${key} имеет значение ${options[key]}`)
+        counter++;
+    }
+            
+    
+}
+
+console.log(counter);
+
+console.log(Object.keys(options).length);
+//Рациональное рещение для поиска количества объектов в object
+
+const bro = {
+    name: 'brothan',
+    age: '30',
+    bag: {
+        money: 10,
+        phone: 'Nokia'
+    }
+}
+
+
+console.log(Object.keys(bro).length);
+
+options.makeTest();
+
+const {border, bg} = options.colors;
+console.log(border);
+  //всё идет от обьектов, например стротка это объект.
+  // например String
+  // все сущности сводятся к объектам
+  // скорее прототипно ориентированный язык
+
+
+  */
 
 
