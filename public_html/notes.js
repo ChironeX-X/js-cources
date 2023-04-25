@@ -239,8 +239,16 @@ console.log(border);
             
             "use strict";
 
-const arr = [1,2,3,6,8];
+const arr = [11,2,1,6,5];
+arr.sort(compareNum);//внутрь sort мы можем добавить callback функцию
+console.log(arr);
 
+
+function compareNum(a,b) {
+    return a - b;//работает с числами. Нужно вникнуть в работу sort
+}
+
+//Псевдомассивы, у них нет никаких встроенных методов.
 //console.log(arr.length);
 //arr[99] = 0;
 //console.log(arr.length);
@@ -255,9 +263,7 @@ const arr = [1,2,3,6,8];
 //    console.log(arr[i]);
 //}
 //
-//for (let value of arr) {
-//    console.log(value);
-//}
+
 
 // Самый полезный метод.
  arr.forEach(function(item,i,arr){
@@ -267,6 +273,18 @@ const arr = [1,2,3,6,8];
 // У метода через просто for есть плюс, в том плане что можем
 // использовать break и continue.
 // Остановился на 15 минуте. Посмотри картинку :P
+// Готово, урок пройден.
+ for (let value of arr) {
+    console.log(value);
+}
+
+const str = prompt("","");
+const products = str.split(", ");
+products.sort();// работает только со строками.
+console.log(products.join('; '));
+    
+
+
 
 
 
