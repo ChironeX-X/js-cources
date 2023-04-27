@@ -74,3 +74,41 @@ const oldArray = ['a','b','c'];
 //как с объектами.
 const newArray = oldArray.slice();
 
+newArray[1] = 'assdadsa';
+console.log(newArray);
+console.log(oldArray);
+
+
+const video = ['youtube','vimeo','rutube'],
+      blogs = ['wordpress','livejournal','blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+      //spread оператор, оператор разворота.
+      
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+
+const num = [2, 5, 7];
+
+log(...num); // функция принимает 3 числа, а не массив.
+             // но с помощью оператора развертки мы можем это исправить.
+             
+const array = ["a", "b"];
+
+const newAarray = [...array];
+
+const q = {
+   one: 1,
+   two: 2
+};
+
+
+const newObj = {...q};
+
+
+
