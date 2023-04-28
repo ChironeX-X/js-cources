@@ -411,7 +411,63 @@ console.log(products.join('; '));
 //
 //
 //const newObj = {...q};
-//
+// 
+
+          28.04.23
+          Основы ООП и прототипно ориентированное наследование
+"use strict";
+
+
+let str = "some";
+let strObj = new String(str);
+
+
+console.log(typeof(str));
+console.log(typeof(strObj));
+// Когда строка идет в работу 
+// она оборачивается JS в объект, потом опять становится
+// просто строкой
+
+// прототип
+//когда мы создаем массив, мы создаем новый экземпляр прототипа
+//массивов.
+
+//легковая машина, это прототип, а всякие лады мерседесы, это экземпляры прототипов,
+//        все свойства у них одинаковые, колеса там и двигатель есть у всех но сами эти свойства
+//по значению разные, типо того.
+
+console.dir([1,2,3]);
+
+const soldier = {
+  health: 400,
+  armor: 100,
+  sayHello: function() {
+      console.log("Hello");
+  }
+};
+
+const john = {
+    health: 100
+};
+
+
+ // Сначала устаревший формат
+ john.__proto__ = soldier;
+ 
+ console.log(john);
+ // Выдает, что у john есть только свойство health
+ console.log(john.armor);
+ // выдает 100, как у прототипа.
+console.log(john.sayHello());
+
+//теперь новый формат.
+
+object.setPrototypeOf(John, soldier);
+// это когда объект есть, а когда его нет, то
+const bob = Object.create(soldier);
+//ООП - это о том, как правильно делать архитектуру.
+
+
 //
 
 
