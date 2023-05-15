@@ -470,6 +470,35 @@ const bob = Object.create(soldier);
 
 //
 
+        10.05.23
+        Практика по использованию объектов.
+        я очень устал, но надо двигаться дальше...
+        дорогу осилит идущий...
+
+        15.05.23
+        У нас всё получится.
+         const personalMovieDB = {
+
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+ };
+ 
+ for (let i = 1; i < 4; i++) {
+             
+          const a = prompt(`Ваш любимый жанр под номером ${i}`, '');
+          console.log(a);
+          if (a != '' || a!=null){
+             console.log("bro dude");
+             personalMovieDB.genres[i - 1] = a;
+          } else {
+              i--;
+          }
+ }
+ 
+ console.log(personalMovieDB);
+// Не получилось, завтра попробую найти ошибку или посмотрю ответы.
 
   */
 
