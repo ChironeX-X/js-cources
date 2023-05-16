@@ -594,6 +594,38 @@ personalMovieDB.showMyDB(personalMovieDB.privat);
 
 console.log(personalMovieDB);
 
+        
+            Использование breakpoints в консоли разработчика для дебаггинга
+            можно переходить к следующей функции, или войти в тело вызываемой функции.
+
+            с помощью ключевого слова debugger мы можем так же поставить что-то вроде
+            breakpoint
+use strict";
+
+function hello(){
+    console.log("Hello World!");
+    debugger; //ключевое слово для breakpoints
+}
+
+hello();
+
+function hi(){
+    console.log("Say hi!");
+}
+
+hi()
+
+
+const arr =[1, 14, 4, 30, 54],
+        sorted = arr.sort(compareNum);
+
+function compareNum(a,b){
+    return a-b;
+}
+
+console.log(sorted);
+
+код с урока по консоли разработчика и breakpoints
   */
 
 
