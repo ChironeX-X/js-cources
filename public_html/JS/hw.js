@@ -34,16 +34,36 @@ const personalMovieDB = {
          }
     }},
     writeYourGenres: function(){
-       
-           for (let i = 1; i < 4; i++) {
+       for(let i = 1; i < 2; i++ ){
+           
+//           let genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+//           
+//                 if(genre ==='' || genre ==null){
+//                 console.log('Вы ввели некорректные данные');
+//                 i--;
+//       } else {
+//       personalMovieDB.genres[i - 1] = genre;         
+//       }}
+//   
+//   
+//       personalMovieDB.genres.forEach((item,i)=>{
+//           
+//           console.log(`Любимый жанр ${i+1} - это ${item}`)
+//       });
+//      
+            let genres = prompt('Введите ваши любимые жанры через запятую').toLowerCase();
+           
+                 if(genres ==='' || genres ==null){
+                 console.log('Вы ввели некорректные данные');
+                 i--;
+                 } else {
+                 personalMovieDB.genres = genres.split(', ');
+                 personalMovieDB.genres.sort();
+                 }
              
-          const a = prompt(`Ваш любимый жанр под номером ${i}`, '');
-          if (a != "" || a!=null){
-          personalMovieDB.genres[i - 1] = a;
-          } else {
-              i--;
-          };
-    }
+                     //можно запустить цикл всего лишь один раз,
+                     //но используя i-- откатываться к его началу. 
+       }
     },   
     detectPersonalLvl: function(){
         if (personalMovieDB.count < 10) {
@@ -56,28 +76,29 @@ const personalMovieDB = {
     console.log('произошла ошибка');
     }
 }
-//    ,
-//    showMyDB: function(){
-//           if (!hidden) {
-//        console.log(personalMovieDB);
-//    }
-//    },
-//    toggleVisibleMyDB: function(){
-//        if(personalMovieDB.privat == true){
-//            personalMovieDB.privat = false;
-//        } else {
-//            personalMovieDB.privat = true;
-//        }
-//    }
+    ,
+    showMyDB: function(hidden){
+           if (!hidden) {
+        console.log(personalMovieDB);
+    }
+    },
+    toggleVisibleMyDB: function(){
+        if(personalMovieDB.privat == true){
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
+        }
+    }
 };
 
 personalMovieDB.start();
 personalMovieDB.rememberMyFilms();
 personalMovieDB.writeYourGenres();
 personalMovieDB.detectPersonalLvl();
+personalMovieDB.toggleVisibleMyDB();
 
 //let privat = false;
 
-//personalMovieDB.showMyDB(personalMovieDB.privat);
+personalMovieDB.showMyDB(personalMovieDB.privat);
 
 console.log(personalMovieDB);
