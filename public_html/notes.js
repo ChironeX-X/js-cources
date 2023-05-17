@@ -626,6 +626,89 @@ function compareNum(a,b){
 console.log(sorted);
 
 код с урока по консоли разработчика и breakpoints
+
+
+        17.05.23
+        Пробуем работать с утра, посмотрим что из этого выйдет.
+        026 Динамическая типизация в JS
+        
+        
+         "use strict";
+ 
+ // to string, старый метод
+ 
+ // 1)
+ console.log(typeof(String(null)));
+ console.log(typeof(String(4)));
+ 
+ // 2)
+ // конкатенация строк,
+ // при сложении со строкой
+ // у нас все равно получается строка
+ console.log(typeof(5 + ''));
+
+const num = 5;
+
+//пример старого кода
+
+console.log("https://vk.com/catalog/" + num);
+
+//Пример использования с CSS
+
+const fontSIze = 26 + 'px';
+
+// to number
+
+// 1) редский способ
+
+ console.log(typeof(Number('4')));
+ 
+// 2) Унарный плюс, его используют чаще
+
+  console.log(typeof(+'5'));
+  
+// 3) 
+   console.log(typeof(parseInt("15px", 10)));
+   
+   
+   // реальное применение
+   // Превращаем строковые данные в число
+   // Все что мы получаем от пользователя,
+   // Это строка.
+   let answ = +prompt("Hello","");
+   
+   
+   
+ // to boolean
+ 
+ // false - 0, '',null, undefined, NaN;
+ // остальное - true
+ 
+ 
+let switcher = null;
+
+if (switcher) {
+    console.log('Working...')
+}
+   
+   
+ switcher = 1;
+ 
+if (switcher) {
+    console.log('Working...')
+}
+
+// 2)
+
+console.log(typeof(Boolean('4')));
+
+// 3)
+console.log(typeof(!!"44444"));
+
+
+Выше представлен код по динамической типизации в JS
+
+
   */
 
 
