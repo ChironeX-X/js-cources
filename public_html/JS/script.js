@@ -5,6 +5,7 @@ const box = document.getElementById('box'),
       circles = document.getElementsByClassName('circle'),
       hearts = document.querySelectorAll('.heart'),
       oneHeart = document.querySelector('.heart');
+      wrapper = document.querySelector('.wrapper');
 //
 // Выводит в консоль обьект с его свойствами      
 //console.dir(box);
@@ -47,3 +48,42 @@ const div = document.createElement('div');
 
 div.classList.add('black');
 //14:37
+
+//берем тег бади как родителя
+//в самый низ ставим наш див
+document.body.append(div);
+//document.querySelector('.wrapper').append(div);
+//Произведем рефакторинг кода
+//тоесть переделаем под новые условия
+//
+//wrapper.append(div);// ставит элемент в конец родителя
+//wrapper.prepend(div); // ставит элемент в начало родителя
+//так же есть методы before и after
+//hearts[1].before(div);//ставит элементы до или после выбранного
+//hearts[1].after(div);
+//можем и удалить элементы
+//circles[0].remove();
+// замена элементов
+//hearts[1].replaceWith(circles[0]);
+
+//Далее идут устаревшие конструкции
+//wrapper.appendChild(div);
+//
+
+//wrapper.insertBefore(div, hearts[1]);
+
+//wrapper.removeChild(hearts[1]);
+//wrapper.replaceChild(circles[0],hearts[0]);
+
+//
+//с этим методом ниже можно добавить 
+//код html
+//div.innerHTML = "<h1>Hello world!</h1>";
+//нижний метод просто для текста, для защиты страницы
+//от всякого лишнего кода.
+//div.textContent = "hello";
+
+//29:33
+
+
+
