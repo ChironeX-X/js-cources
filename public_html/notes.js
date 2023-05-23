@@ -950,7 +950,16 @@ div.insertAdjacentHTML('beforebegin','<h2>Hello</h2>');
 //              oneHeart = wrapper.querySelector('.heart');
 //      
    добил этот урок, идем к следующему.
+        30 практика
 
+        Решил первое задание.
+const adv = document.querySelector('.promo__adv');
+        
+adv.querySelectorAll('*').forEach(n => n.remove());
+//Звездочка видимо помечает вообще ВСЕ элементы
+        Второе задание решено
+        перерыв.
+        
   */
 
 
