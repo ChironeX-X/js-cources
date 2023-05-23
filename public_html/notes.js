@@ -939,6 +939,17 @@ document.body.append(div);
 
 
 
+    28.05.23
+    Продолжение урока 029
+    //метод ниже используется для того, чтобы вставить
+//html код до или после элемента
+div.insertAdjacentHTML('beforebegin','<h2>Hello</h2>');
+
+// еще одна возможность получить элемент, без слова документ
+//const         wrapper = document.querySelector('.wrapper');
+//              oneHeart = wrapper.querySelector('.heart');
+//      
+   добил этот урок, идем к следующему.
 
   */
 
