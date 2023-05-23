@@ -25,11 +25,17 @@ const movieDB = {
 };
 
 const adv = document.querySelector('.promo__adv'),
-        promoGenre = document.querySelector('.promo__genre');
+        promoGenre = document.querySelector('.promo__genre'),
+        promoBg = document.querySelector('.promo__bg'),
+        promoList = document.querySelectorAll('.promo__interactive-item');
         
 adv.querySelectorAll('*').forEach(n => n.remove());
 //Звездочка видимо помечает вообще ВСЕ элементы
 promoGenre.innerHTML = 'ДРАМА';
+promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
+promoList.forEach((n,i)=>{
+     n.textContent = `${i+1}. ${movieDB.movies[i]}`;
+});
 
 
 
