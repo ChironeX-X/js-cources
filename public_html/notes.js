@@ -997,11 +997,105 @@ adv.querySelectorAll('*').forEach(n => n.remove());
 //Звездочка видимо помечает вообще ВСЕ элементы
 promoGenre.innerHTML = 'ДРАМА';
 promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
+movieDB.movies.sort();
 promoList.forEach((n,i)=>{
      n.textContent = `${i+1}. ${movieDB.movies[i]}`;
 });
         
+        24.05.23
+        030
+        Смотрим урок по практике.
+        основная ошибка - не отсортировал массив
+        Задания на урок:
+
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
+
+2) Изменить жанр фильма, поменять "комедия" на "драма"
+
+3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
+
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
+
+5) Добавить нумерацию выведенных фильмов 
+
+'use strict';
+
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
+ //решение с урока
+const adv = document.querySelectorAll('.promo__adv img'),
+        //можно выбирать вот так теги, кучей, вспомни CSS.
+      poster = document.querySelector('.promo__bg'),
+      genre = poster.querySelector('.promo__genre'),
+      movieList = document.querySelector('.promo__interactive-list');
+      //лучше одно в другом
+
+        adv.forEach(item => {
+            item.remove();
+        });
+
+genre.textContent = 'ДРАМА';
+//лучше использовать в таких случаях textCOntent
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+
+movieList.innerHTML = "";
+
+
+ //сортируем сразу в базе
+movieDB.movies.sort();
+movieDB.movies.forEach((film,i)=>{
+   movieList.InnerHTML += `
+    <li class="promo__interactive-item"> ${i+1} ${film}
+            <div class="delete"></div>
+    </li>
+
+`;
+});
+// а вот здесь лучше innerHTML, у нас текст контент
+// это чтобы сохранить классы и прочее
+// хотя у меня вроде тоже норм работало.
         
-  */
+        
+        Далее идёт важный урок.
+        031 События и обработчики
+        Говорит, что самый важный урок в JS
+        клик - это сигнал от браузера, что что-то происходит
+        
+        обработчик, это функция, которая выполняется когда событие произошло.
+        
+        3 способа создать обработчик событий
+        1) прямо в HTML документе.
+         <button onClick="alert('Click')" id="btn">Нажми меня</button>
+         но так ессесна почти никто не делает.
+        2) использование дом-дерева
+        const btn = document.querySelector('button');
+        btn.onclick = function() {
+            alert('click');
+        };
+        тоже не особо используется.
+        есть большая проблема.
+        нельзя повторить, чтобы после второго клика мышкой было другое
+        действие
+        
+        3)//btn.addEventListener('click',()=>{
+          //    alert('click');
+          //});
+           
+           лучший способ
+           11:35 перерыв
+           
+ 
+ 
+
+ */
 
 
