@@ -1,45 +1,50 @@
+/* Задания на урок:
+
+1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
+новый фильм добавляется в список. Страница не должна перезагружаться.
+Новый фильм должен добавляться в movieDB.movies.
+Для получения доступа к значению input - обращаемся к нему как input.value;
+P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
+
+2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
+
+3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
+
+4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
+"Добавляем любимый фильм"
+
+5) Фильмы должны быть отсортированы по алфавиту */
+
 'use strict';
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
 
-//console.log(document.body);
-//можно получить тег html
-//
+const adv = document.querySelector('.promo__adv'),
+        promoGenre = document.querySelector('.promo__genre'),
+        promoBg = document.querySelector('.promo__bg'),
+        promoList = document.querySelectorAll('.promo__interactive-item');
+        
+adv.querySelectorAll('*').forEach(n => n.remove());
+//Звездочка видимо помечает вообще ВСЕ элементы
+promoGenre.innerHTML = 'ДРАМА';
+promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
+movieDB.movies.sort();
+promoList.forEach((n,i)=>{
+     n.textContent = `${i+1}. ${movieDB.movies[i]}`;
+});
 
-//console.log(document.documentElement);
-//применение кода ниже, получить родительский или деткий элемент.
-//console.log(document.body.childNodes);
-//теги - элементы
-//всё остальное, например перенос стоки text в нашем случае, это ноды
-//console.log(document.body.firstChild);
-//console.log(document.body.lastChild);
+const inpFilm = document.querySelector('.adding__input'),
+      addBtn = document.querySelector('.add').lastElementChild;
 
-//далее команды для доступа к соседям детям родителям
-
-//console.log(document.querySelector('#current').parentNode);
-
-//!!
-//  node и element разные вещи
-//!!
-
-//console.log(document.querySelector('#current').parentNode.parentNode);
-//это если нужно добраться до деда
-
-//далее говорим про дата аттрибуты
-//а точнее, вскользь упоминаем :)
-//console.log(document.querySelector('[data-current = "3"]').nextSibling);
-//console.log(document.querySelector('[data-current = "3"]').previousSibling);
-
-//у этих команд есть аналоги, с помощью которых
-//мы можем получить не ноды, а именно элементы.
-//
-//console.log(document.querySelector('[data-current = "3"]').nextElementSibling);
-//console.log(document.querySelector('#current').parentElement);
-
-console.log(document.body.firstElementChild);
-
-//когда не получается использовать конструкцию forEach
-for (let node of document.body.childNodes){
-    if (node.nodeName == '#text'){
-        continue;
-    }
-    console.log(node);
-}
+//console.log(addBtn);
+//console.log(inpFilm.value);
+btn.addEventListener('click',()=>{
+   
+});
