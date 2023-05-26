@@ -35,16 +35,34 @@ adv.querySelectorAll('*').forEach(n => n.remove());
 //Звездочка видимо помечает вообще ВСЕ элементы
 promoGenre.innerHTML = 'ДРАМА';
 promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
-movieDB.movies.sort();
-promoList.forEach((n,i)=>{
-     n.textContent = `${i+1}. ${movieDB.movies[i]}`;
-});
+
+function filmSort(){ 
+    movieDB.movies.sort();
+        promoList.forEach((n,i)=>{
+            n.textContent = `${i+1}. ${movieDB.movies[i]}`;
+        });
+};
+
+filmSort();
 
 const inpFilm = document.querySelector('.adding__input'),
       addBtn = document.querySelector('.add').lastElementChild;
 
-//console.log(addBtn);
-//console.log(inpFilm.value);
-btn.addEventListener('click',()=>{
-   
+console.log(addBtn);
+console.log(inpFilm.value);
+addBtn.addEventListener('click',(e)=>{
+   e.preventDefault();
+   //console.log(inpFilm.value);
+   //console.log(inpFilm.value.length);
+        if (inpFilm.value.length > 21){
+             movieDB.movies.push(`${inpFilm.value.slice(0,22)}...`);
+             filmSort();
+        } else
+        {
+            movieDB.movies.push(inpFilm.value);
+               //console.log(movieDB.movies);
+            filmSort();
+        };
+
 });
+
