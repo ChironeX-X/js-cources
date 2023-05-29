@@ -29,31 +29,44 @@ const movieDB = {
 const adv = document.querySelector('.promo__adv'),
         promoGenre = document.querySelector('.promo__genre'),
         promoBg = document.querySelector('.promo__bg'),
-        promoList = document.querySelectorAll('.promo__interactive-item');
-        
+        movieList = document.querySelectorAll('.promo__interactive-item'),
+        delBtn = document.querySelectorAll('.delete'),
+        inpFilm = document.querySelector('.adding__input'),
+      addBtn = document.querySelector('.add').lastElementChild;
+
 adv.querySelectorAll('*').forEach(n => n.remove());
 //Звездочка видимо помечает вообще ВСЕ элементы
 promoGenre.innerHTML = 'ДРАМА';
 promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
 
+delBtn.forEach((btn)=>{
+    console.log('done...');
+    btn.addEventListener('click',()=>{
+        console.log('click');
+    });
+    console.log('done2');
+});
+
+
+
 function filmSort(){ 
     movieDB.movies.sort();
-        promoList.forEach((n,i)=>{
-            n.textContent = `${i+1}. ${movieDB.movies[i]}`;
-        });
-};
+    movieList.innerHTML = "";
+    movieList.forEach((e,i)=>{
+        e.innerHTML = `${i+1} ${movieDB.movies[i]}
+            <div class="delete"></div>`;
+    });
+    };
 
 filmSort();
 
-const inpFilm = document.querySelector('.adding__input'),
-      addBtn = document.querySelector('.add').lastElementChild;
 
-console.log(addBtn);
-console.log(inpFilm.value);
+
+
+
+
 addBtn.addEventListener('click',(e)=>{
-   e.preventDefault();
-   //console.log(inpFilm.value);
-   //console.log(inpFilm.value.length);
+     e.preventDefault();
         if (inpFilm.value.length > 21){
              movieDB.movies.push(`${inpFilm.value.slice(0,22)}...`);
              filmSort();
@@ -63,6 +76,9 @@ addBtn.addEventListener('click',(e)=>{
                //console.log(movieDB.movies);
             filmSort();
         };
-
+    
+    
 });
+
+
 

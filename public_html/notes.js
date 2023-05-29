@@ -1265,6 +1265,81 @@ for (let node of document.body.childNodes){
         26.05.23
         продолжение решения практики по заданиям
         решено 2 задания
+
+        27.05.23
+        встал пораньше, надеюсь получится покодить немного :D
+        
+        29.05.23
+        встрял на одной ошибке с innerHTML
+        Либо всё переделывать самому, либо использовать его контекст.
+
+'use strict';
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
+
+const adv = document.querySelector('.promo__adv'),
+        promoGenre = document.querySelector('.promo__genre'),
+        promoBg = document.querySelector('.promo__bg'),
+        movieList = document.querySelector('.promo__interactive-list'),
+        delBtn = document.querySelectorAll('.delete'),
+        inpFilm = document.querySelector('.adding__input'),
+      addBtn = document.querySelector('.add').lastElementChild;
+
+adv.querySelectorAll('*').forEach(n => n.remove());
+//Звездочка видимо помечает вообще ВСЕ элементы
+promoGenre.innerHTML = 'ДРАМА';
+promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
+
+function filmSort(){ 
+    movieDB.movies.sort();
+    movieList.InnerHTML = "";
+    movieDB.movies.forEach((film,i)=>{
+    movieList.InnerHTML += `
+    <li class="promo__interactive-item"> ${i+1} ${film}
+            <div class="delete"></div>
+    </li>
+    `;});
+    };
+
+filmSort();
+
+
+
+
+function addFilm(){  
+        e.preventDefault();
+        if (inpFilm.value.length > 21){
+             movieDB.movies.push(`${inpFilm.value.slice(0,22)}...`);
+             filmSort();
+        } else
+        {
+            movieDB.movies.push(inpFilm.value);
+               //console.log(movieDB.movies);
+            filmSort();
+        };
+};
+addBtn.addEventListener('click',addFilm);
+console.log(delBtn);
+
+delBtn.forEach((btn)=>{
+    btn.addEventListener('click',()=>{
+        console.log('click');
+});
+});
+
+//delBtn[0].addEventListener('click',(e)=>{
+//    console.log(e.target);
+//    console.log('del film');
+//});
+
+
  */
 
 
