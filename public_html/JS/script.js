@@ -30,7 +30,6 @@ const adv = document.querySelector('.promo__adv'),
         promoGenre = document.querySelector('.promo__genre'),
         promoBg = document.querySelector('.promo__bg'),
         movieList = document.querySelectorAll('.promo__interactive-item'),
-        delBtn = document.querySelectorAll('.delete'),
         inpFilm = document.querySelector('.adding__input'),
       addBtn = document.querySelector('.add').lastElementChild;
 
@@ -39,13 +38,7 @@ adv.querySelectorAll('*').forEach(n => n.remove());
 promoGenre.innerHTML = 'ДРАМА';
 promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
 
-delBtn.forEach((btn)=>{
-    console.log('done...');
-    btn.addEventListener('click',()=>{
-        console.log('click');
-    });
-    console.log('done2');
-});
+
 
 
 
@@ -60,7 +53,14 @@ function filmSort(){
 
 filmSort();
 
-
+   const delBtn = document.querySelectorAll('.delete');
+    delBtn.forEach((btn,i)=>{
+        btn.addEventListener('click',()=>{
+             movieDB.movies.splice(i,1);
+             console.log(movieDB.movies.length);
+             movieList[movieDB.movies.length].innerHTML = "";
+        });
+        });
 
 
 
