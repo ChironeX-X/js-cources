@@ -1,21 +1,10 @@
-/* Задания на урок:
-
-1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
-новый фильм добавляется в список. Страница не должна перезагружаться.
-Новый фильм должен добавляться в movieDB.movies.
-Для получения доступа к значению input - обращаемся к нему как input.value;
-P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
-
-2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
-
-3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
-
-4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
-"Добавляем любимый фильм"
-
-5) Фильмы должны быть отсортированы по алфавиту */
-
 'use strict';
+
+//событие для того, чтобы скрипт выполнялся после загрузки дом дерева
+// можно еще сделать так,  чтобы скрипт выполнялся только после загрузки всей страницы
+
+document.addEventListener('DOMContentLoaded',()=>{
+    
 const movieDB = {
     movies: [
         "Логан",
@@ -26,59 +15,64 @@ const movieDB = {
     ]
 };
 
-const adv = document.querySelector('.promo__adv'),
-        promoGenre = document.querySelector('.promo__genre'),
-        promoBg = document.querySelector('.promo__bg'),
-        movieList = document.querySelectorAll('.promo__interactive-item'),
-        inpFilm = document.querySelector('.adding__input'),
-      addBtn = document.querySelector('.add').lastElementChild;
-
-adv.querySelectorAll('*').forEach(n => n.remove());
-//Звездочка видимо помечает вообще ВСЕ элементы
-promoGenre.innerHTML = 'ДРАМА';
-promoBg.style.backgroundImage = 'url("http://localhost:8383/js-cources/img/bg.jpg")';
-
-
-
-
-
-function filmSort(){ 
-    movieDB.movies.sort();
-    movieList.innerHTML = "";
-    movieList.forEach((e,i)=>{
-        e.innerHTML = `${i+1} ${movieDB.movies[i]}
-            <div class="delete"></div>`;
+const adv = document.querySelectorAll('.promo__adv img'),
+      poster = document.querySelector('.promo__bg'),
+      genre = poster.querySelector('.promo__genre'),
+      movieList = document.querySelector('.promo__interactive-list'),
+      addForm = document.querySelector('form.add'),
+      addInput = addForm.querySelector('.adding__input'),
+      checkBox = addForm.querySelector('[type = "checkbox"]');
+      
+      //получение HTML типа через селектор
+      
+    addForm.addEventListener('submit', (event)=>{
+        event.preventDefault();
+        
+        const newFilm = addInput.value;
+        const favorite = checkbox.checked;
+        
+        movieDB.movies.push(newFilm);
+        movieDB.movies.sort();
+        
     });
+      
+    const deleteAdv = (arr) => {
+        arr.forEach(item => {
+            item.remove();
+        });
+    };
+    
+    //это пример функционального выражения.
+    //function expressions
+    
+    deleteAdv(adv);
+    
+    const makeChanges = () => {
+        genre.textContent = 'драма';
+
+        poster.style.backgroundImage = 'url("img/bg.jpg")';
+
     };
 
-filmSort();
-
-   const delBtn = document.querySelectorAll('.delete');
-    delBtn.forEach((btn,i)=>{
-        btn.addEventListener('click',()=>{
-             movieDB.movies.splice(i,1);
-             console.log(movieDB.movies.length);
-             movieList[movieDB.movies.length].innerHTML = "";
-        });
-        });
-
-
-
-
-addBtn.addEventListener('click',(e)=>{
-     e.preventDefault();
-        if (inpFilm.value.length > 21){
-             movieDB.movies.push(`${inpFilm.value.slice(0,22)}...`);
-             filmSort();
-        } else
-        {
-            movieDB.movies.push(inpFilm.value);
-               //console.log(movieDB.movies);
-            filmSort();
-        };
+    makeChenges();
     
+movieDB.movies.sort();
+
+
+function createMovieList(films,parent) {
+    
+    parent.innerHTML = "";
+
+    films.forEach((film,i)=>{
+        parent.innerHTML += `
+            <li class="promo__interactive-item">${i+1} ${film}
+                <div class="delete"></div>
+            </li>
+            `;
     
 });
+};
 
+createMovieList(movieDB.movies,movieList);
 
-
+});
