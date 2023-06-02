@@ -56,7 +56,11 @@ const adv = document.querySelectorAll('.promo__adv img'),
 
     makeChenges();
     
+    const sortArr = (arr)=>{
+        arr.sort();
+    };
 movieDB.movies.sort();
+
 
 
 function createMovieList(films,parent) {

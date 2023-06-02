@@ -1500,7 +1500,9 @@ createMovieList(movieDB.movies,movieList);
 
 });
 
-
+        02.06.23
+        Продолжаем с 16:23
+        
 
             
  */
