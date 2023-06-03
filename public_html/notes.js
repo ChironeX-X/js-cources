@@ -1623,6 +1623,56 @@ makeChanges();
         Просмотрел решение, большая часть из того, что он делал на уроке
         я тоже сделал, была пара ошибок с тем, что не знал метод дом контент лоадед
         и то, что функицю можно вызывать рекурсией.
+
+        03.06.23
+        034 события на мобильных устройствах
+        сам браузер отрабатывает события кликов, но иногда полезно испоользовать
+        события Touch
+        4.37
+        Продолжаем.
+        Есть прикольная кнопка, чтобы смотреть адаптацию под разные устройства
+        например, под смартфон, и протестить тапы на экран смартфона.
+        
+        'use strict';
+//touch start
+//touch move
+//touchend
+//touchenter
+//touchleave
+//touchcancel
+
+window.addEventListener('DOMContentLoaded',()=>{
+    
+    const box = document.querySelector('.box');
+    
+    box.addEventListener('touchstart',(e)=>{
+        e.preventDefault();
+        
+        console.log('Start');
+        console.log(e.touches);
+    });
+    
+    box.addEventListener('touchmove',(e)=>{
+        e.preventDefault();
+        
+        console.log(e.targetTouches[0].pageX);
+    });
+//    
+//     box.addEventListener('touchend',(e)=>{
+//        e.preventDefault();
+//        
+//        console.log('End');
+//     });
+     
+     //touches
+     // выводит все пальцы на экране и их свойства/методы
+     // если нужно узнать направленные именно на этот элемент тапы
+     // changed touches показывает именно убранные во время события пальцы
+     
+});
+       Досмотрел урок, много интересного касательно тачей и прочего.
+       плюс, в курсах есть инфа по топ ссылкам
+       например, готовая библиотека для слайдеров.
             
  */
 
