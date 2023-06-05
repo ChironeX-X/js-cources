@@ -1,0 +1,12 @@
+.btn-block{
+    background-color: #d5ce06;
+}
+
+button{
+    background-color: blue;
+    width: 20px;
+    height: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
