@@ -1703,7 +1703,8 @@ window.addEventListener('DOMContentLoaded',()=>{
        начал изучение 3 блока
        
        05.06.2023
-       
+       classList и делегирование событий
+       изучил classList, дико крутая штука.
 
  */
 
