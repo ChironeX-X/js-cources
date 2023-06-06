@@ -1701,6 +1701,9 @@ window.addEventListener('DOMContentLoaded',()=>{
        
        05.06.2023
        начал изучение 3 блока
+       
+       05.06.2023
+       
 
  */
 
