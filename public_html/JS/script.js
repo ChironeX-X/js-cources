@@ -1,5 +1,6 @@
 'use strict';
-const btns = document.querySelectorAll('button');
+const btns = document.querySelectorAll('button'),
+      wrapper = document.querySelector('.btn-block');
 
 //console.log(btns[0].classList.length);
 
@@ -34,3 +35,10 @@ btns[0].addEventListener('click',()=>{
 //toggle можно использовать, но внутрь этого метода
 // не влезть, и в крупных проектах это не совсем удобно
 //нужно конкретно знать что мы хотим сделать.
+
+//console.log(btns[0].className);
+
+//делегирование событий
+//вместо того, чтобы вешать листенер на каждую кнопку, вешаем на родительский
+//и вот он будет ставить листенеры на кнопки. важная тема, как и та что выше.
+wrapper.addEventListener('click',()=>{});

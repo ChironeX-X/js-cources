@@ -1706,6 +1706,9 @@ window.addEventListener('DOMContentLoaded',()=>{
        classList и делегирование событий
        изучил classList, дико крутая штука.
 
+       Немного продолжил работу вечером.
+       Ну, значит совсем немного
+
  */
 
 
