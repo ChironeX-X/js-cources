@@ -41,4 +41,45 @@ btns[0].addEventListener('click',()=>{
 //делегирование событий
 //вместо того, чтобы вешать листенер на каждую кнопку, вешаем на родительский
 //и вот он будет ставить листенеры на кнопки. важная тема, как и та что выше.
-wrapper.addEventListener('click',()=>{});
+//wrapper.addEventListener('click', (event) => {
+//    //console.dir(event.target);
+//    //можем получить тег кнопки
+//    if (event.target && event.target.tagName == "BUTTON") {
+//        console.log('Hello');
+//    }
+//    ;
+//});
+
+//wrapper.addEventListener('click',(event)=>{
+//    if(event.target && event.target.classList.contains('blue')){
+//        console.log('Hello');
+//    };
+//});
+
+//const btn = document.createElement('button');
+//btn.classList.add('red');
+//wrapper.append(btn);
+
+//можно использовать классический метод
+//Но лучше использовать предыдущий
+
+btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        console.log('Hello!');
+    });
+});
+
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn);
+
+
+//Есть ещё один дико крутой метод, который тоже можно
+//и нужно использовать
+
+wrapper.addEventListener('click', (event) => {
+    if (event.target && event.target.matches("button.red")) {
+        console.log('Hello');
+    }
+    ;
+});
