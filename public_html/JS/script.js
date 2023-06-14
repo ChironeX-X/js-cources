@@ -1,49 +1,35 @@
- 'use strict';
+//const timerId = setTimeout(function(text){
+//    console.log(text);
+//}, 2000, 'Hello');
+// по синтаксису можно делать интересные вещи,
+// например передавать аргумент функции на выполнение
+// третий аргумент передается в функцию.
+
+// можем так же передавать функцию как аргумент
+const timerId = setTimeout(logger, 2000);
+//скобки не пишем, функцию не вызываем.
+function logger(){
+    console.log('Hello');
+};
+
+//setTimeout(logger, 2000);
+// работает и так.
+
+//ставим переменную чтобы следить за конкретным таймером.
+
+//clearInterval(timerId);
+//Останавливаем таймер
+
+
+
+const btn = document.querySelector('.btn');
+let timerId;
+//можем создавать пустые глобальные переменные, чтобы они были джоступны 
+
+btn.addEventListener('click',()=>{
+    //const timerId = setTimeout(logger, 2000);
+    //Пробуем команду setInterval;
+    timerId = setInterval(logger, 2000);
+});
+
  
- window.addEventListener('DOMContentLoaded',()=>{
-     const tabs = document.querySelectorAll('.tabheader__item'),
-           tabsContent = document.querySelectorAll('.tabcontent'),
-           tabsParent = document.querySelector('.tabheader__items');
-           
-     function hideTabContent() {
-         tabsContent.forEach(item => {
-             item.classList.add('hide');
-             item.classList.remove('show','fade');
-             //скрываем табы вот этой небольшой частью кода
-         });
-         tabs.forEach(item=>{
-             item.classList.remove('tabheader__item_active');
-         });
-     };
-     
-     function showTabContent(i = 0) {
-         tabsContent[i].classList.add('show','fade');
-         tabsContent[i].classList.remove('hide');
-         tabs[i].classList.add('tabheader__item_active');
-     };
-     //новая фишка стандарта ES6, можем прямо при создании функции
-     //поставить значение по умолчанию
-     hideTabContent();
-     showTabContent();
-     
-     tabsParent.addEventListener('click',(event)=>{
-         console.log(event.target);
-         const target = event.target;
-         
-         if(target && target.classList.contains('tabheader__item')){
-             console.log('bruh');   
-             tabs.forEach((item,i)=>{
-                 if(target == item){
-                     hideTabContent();
-                     showTabContent(i);
-                 };
-             });
-         };
-     });
-     
-     //стили лучше менять не inline, а через добавление css классов
-     
-     
-     
-     
- });
