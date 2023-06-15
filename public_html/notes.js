@@ -1890,6 +1890,117 @@ wrapper.addEventListener('click', (event) => {
                 анимации обычно создаются в css, привязываются к какому-то классу
                 а мы в html просто привязываем этот класс к элементу.
                 039 готов. крутая тема.
+
+                //const timerId = setTimeout(function(text){
+//    console.log(text);
+//}, 2000, 'Hello');
+// по синтаксису можно делать интересные вещи,
+// например передавать аргумент функции на выполнение
+// третий аргумент передается в функцию.
+
+// можем так же передавать функцию как аргумент
+//const timerId = setTimeout(logger, 500);
+//скобки не пишем, функцию не вызываем.
+function logger(){
+    if (i == 3){
+        clearInterval(timerId);
+    };
+    console.log('Hello');
+    i++;
+};
+
+//setTimeout(logger, 2000);
+// работает и так.
+
+//ставим переменную чтобы следить за конкретным таймером.
+
+//clearInterval(timerId);
+//Останавливаем таймер
+
+
+
+const btn = document.querySelector('.btn');
+let timerId,
+    i = 0;
+//можем создавать пустые глобальные переменные, чтобы они были джоступны 
+//
+//clearInterval(timerId);
+//
+//btn.addEventListener('click',()=>{
+//    //const timerId = setTimeout(logger, 2000);
+//    //Пробуем команду setInterval;
+//    timerId = setInterval(logger, 500);
+//});
+//
+//let id =  setTimeout(function log(){
+//    console.log('Hello');
+//    id = setTimeout(log,500);
+//},500);
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
+    
+    const id = setInterval(frame, 10);
+    function frame(){
+        if(pos == 300){
+            clearInterval(id); //сюда вводим idшник
+        } else {
+           pos++;
+           elem.style.top = pos + 'px';
+           elem.style.left = pos +'px';
+        }
+    }
+}
+ 
+btn.addEventListener('click',myAnimation);
+
+                040 работа с датами.
+                'use strict';
+
+//const now = new Date();
+//можем в скобки добавить дату свою
+//const now = new Date('Thu Jun 15 2023');
+//const now = new Date(2023, 5, 1, 20);
+//месяцы считаются с нуля
+//часы учитывают часовой пояс
+//все считается в миллисекундах
+//все даты отсчитываются с 1970 года
+//все даты отсчитываются в миллисекундах
+
+const now = new Date("Thu Jun 15 2023");
+// new Date.parse('Thu Jun 15 2023');
+
+//console.log(now.getFullYear());
+//console.log(now.getMonth());
+//console.log(now.getDate());
+//console.log(now.getDay());
+//console.log(now.getUTCHours());
+
+//console.log(now.getTimezoneOffset());
+//console.log(now.getTime());
+//это идут методы геттеры
+//есть такие же методы сеттеры
+ 
+console.log(now.setHours(18));
+console.log(now);
+//браузер делает нормально, а консоль здесь, по UTC
+//JS исправляет диапазон, если пишем например 40 часов.
+
+//как работать со временем?
+let start = new Date();
+
+
+for (let i=0; i<10000; i++){
+    let some = i ** 3;              //начало и конец отсчета
+};
+
+let end = new Date();
+
+alert(`цикл отработал за ${end - start} миллисекунд`); 
+//такая тема еще называется бенчмарком, когда мы тестим производительность.
+                
+                    !!!Закончил урок по датам.
  */
 
 
