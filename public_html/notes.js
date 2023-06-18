@@ -2195,7 +2195,63 @@ console.log(document.documentElement.clientHeight);
                 Урок понравился, много крутых и главное применимых к реальности
                 фишек есть у этого товарища.
                 
-                    
+                18.06.23
+            043 Создаем модальное окно
+            сначала пробуем самостоятельно.
+   const modalBtn = document.querySelectorAll('[data-modal]'),
+            modalClose = document.querySelector('[data-close]');    
+            let modalWindow = document.querySelector('.modal');
+      
+      
+      
+      modalBtn.forEach((item)=>{
+            item.addEventListener('click', ()=>{
+            modalWindow.classList.add('display'); 
+            modalWindow.classList.remove('hide');
+            });
+      });
+      
+      modalClose.addEventListener('click',()=>{
+          modalWindow.classList.remove('display'); 
+          modalWindow.classList.add('hide');
+      });
+
+      моё решение задачи
+
+      у него есть функции, оптимизируем код, добавив функции.
+      
+      принцип программирования dry
+      !!!!!!!!
+      !!!!!     don't repeat yourself!!!
+      !!!!!     
+      !!!!!!!!
+                
+                      function closeModal(){
+          modalWindow.classList.remove('display'); 
+          modalWindow.classList.add('hide');
+          document.body.style.overflow = '';
+      };
+      
+      modalClose.addEventListener('click',closeModal); //здесь мы не вызываем функцию
+                                                       //а передаем
+      
+      modalWindow.addEventListener('click',(e)=>{
+          if(e.target === modalWindow){
+          closeModal();
+          };
+      });
+      
+      document.addEventListener('keydown', (e)=>{
+          if (e.code === "Escape" && modalWindow.classList.contains('display')) { //eventcode гуглим
+              closeModal();
+          };
+          
+      });
+
+      Его решение выше
+      
+      
+                
  */
 
 

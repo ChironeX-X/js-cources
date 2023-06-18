@@ -97,6 +97,46 @@
      };
      
      setClock('.timer',deadline);
+     
+     //modal
+     
+      const modalBtn = document.querySelectorAll('[data-modal]'),
+            modalClose = document.querySelector('[data-close]');    
+            let modalWindow = document.querySelector('.modal');
+      
+      
+      
+      modalBtn.forEach((item)=>{
+            item.addEventListener('click', ()=>{
+            modalWindow.classList.add('display'); //можно использовать toggle
+            modalWindow.classList.remove('hide');
+            document.body.style.overflow = 'hidden'; //чтобы страница не скролилась когда
+                                                     //модальное окно открыто   
+                                                     
+            });
+      });
+      
+      function closeModal(){
+          modalWindow.classList.remove('display'); 
+          modalWindow.classList.add('hide');
+          document.body.style.overflow = '';
+      };
+      
+      modalClose.addEventListener('click',closeModal); //здесь мы не вызываем функцию
+                                                       //а передаем
+      
+      modalWindow.addEventListener('click',(e)=>{
+          if(e.target === modalWindow){
+          closeModal();
+          };
+      });
+      
+      document.addEventListener('keydown', (e)=>{
+          if (e.code === "Escape" && modalWindow.classList.contains('display')) { //eventcode гуглим
+              closeModal();
+          };
+          
+      });
       
      
  });
