@@ -2249,9 +2249,23 @@ console.log(document.documentElement.clientHeight);
       });
 
       Его решение выше
+      19.06.23
+      044 модификация модального окна
+ window.addEventListener('scroll',()=>{
+          if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+            openModal();              
+          } //то что проскроллили
+        //+ размер окна
+      }, {once: true}); //
+        немного не по теме, но в обработчике событий есть третий аргумент, и иногда его очень удобно
+        использовать в работе.
       
-      
-                
+                22.06.23
+                043 модификация модального окна.
+                есть буквально 5 минут времени.
+                уже нет :D
+                08.20
+
  */
 
 

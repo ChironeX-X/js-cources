@@ -104,17 +104,19 @@
             modalClose = document.querySelector('[data-close]');    
             let modalWindow = document.querySelector('.modal');
       
-      
+      function openModal(){
+          modalWindow.classList.add('display'); //можно использовать toggle
+          modalWindow.classList.remove('hide');
+          document.body.style.overflow = 'hidden'; //чтобы страница не скролилась когда
+                                                     //модальное окно открыто
+          clearInterval(modalTimerId);//убираем таймер, чтобы каждый раз не включался опять
+      };
       
       modalBtn.forEach((item)=>{
-            item.addEventListener('click', ()=>{
-            modalWindow.classList.add('display'); //можно использовать toggle
-            modalWindow.classList.remove('hide');
-            document.body.style.overflow = 'hidden'; //чтобы страница не скролилась когда
-                                                     //модальное окно открыто   
-                                                     
-            });
+            item.addEventListener('click',openModal);
       });
+      
+      
       
       function closeModal(){
           modalWindow.classList.remove('display'); 
@@ -138,5 +140,13 @@
           
       });
       
+      const modalTimerId = setTimeout(openModal, 5000);
+      
+      window.addEventListener('scroll',()=>{
+          if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+            openModal();              
+          } //то что проскроллили
+        //+ размер окна
+      });
      
  });
