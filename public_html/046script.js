@@ -7,6 +7,9 @@ showThis();
 // 1) Обычная функция: this - window, но если use strict - то undefined
 //практическая задача с собеседования.
 // 2) Контекст у методов объекта ссылается на сам объект.
+// 3) this у конструкторах и классах - это новый экземпляр класса
+// очень важная тема.
+
 
 function showThisSumm(a,b) {
     console.log(this)
@@ -38,4 +41,18 @@ const  obj={
 
 obj.sum();
 
+//3 случай
+//через функции конструкторы.
 
+function User(name, id){
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function(){
+        console.log("Hello!" + this.name);
+    }
+}
+
+let ivan = new User('Ivan', 23);
+//тоесть контекст ссылается на новый объект user
+// в данном случае, и будет User.name например.
