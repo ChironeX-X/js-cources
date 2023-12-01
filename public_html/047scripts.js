@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Rectangle{
     //чтобы экземпляр класса, используем конструктор.
@@ -8,11 +8,19 @@ class Rectangle{
         this.width = width;
     }
     //между методами нет точек с запятой ;
-    callArea(){
+    calcArea(){
          return this.height * this.width   
     }
 }
 
+class ColoredRectangleWithText extends Rectangle{
+    //Этот класс будет наследоваться от Rectangle
+
+}
 
 const square = new Rectangle(10,10);
-console.log(square.callArea())
+const long = new Rectangle(20,100);
+
+console.log("Bro")
+console.log(long.calcArea())
+console.log(square.calcArea())
